@@ -1,0 +1,70 @@
+<html>
+  <body>
+    <script>
+      let weapon;
+      let rand = 0;
+      let pScore = 0;
+      let cScore = 0;
+      function computerPlay(){
+        rand = Math.floor(Math.random() *3 );
+        if(rand === 0){
+          weapon = "rock";
+        }
+        else if(rand === 1){
+          weapon = "paper";
+        }
+        else{
+          weapon = "scissors";
+        }
+        return weapon;
+      }
+      function getPWeapon(){
+        playerChoice = prompt("Three, two, one, shoot:");
+        return playerChoice;
+      }
+      let pWeapon = getPWeapon().toLowerCase();
+      function playRound(cW, pW){
+        if((cW === "rock" && pW === "paper") ||
+           (cW === "paper" && pW === "scissors") ||
+           (cW === "scissors" && pW === "rock")){
+           console.log("Computer: " + cW + " vs. You: " + pW + "...You win!");
+           pScore++;
+           return pScore;
+           }
+        else if((cW === "rock" && pW === "scissors") ||
+               (cW === "paper" && pW === "rock") ||
+               (cW === "scissors" && pW === "paper")){
+               console.log("Computer: " + cW + " vs. You: " + pW + "...You lose!");
+          cScore++;
+          return cScore;
+               }
+        else{
+          console.log("Computer: " + cW + " vs. You: " + pW + "...A tie!");
+        }
+      }
+      function game(){
+        for(i = 0; i < 5; i++){
+          computerPlay();
+          let cWeapon = computerPlay();
+          playRound(cWeapon, pWeapon);
+          }
+        console.log("Final score: Computer: " + cScore + " You: " + pScore);
+        (cScore > pScore)?console.log("Lose"):
+        (pScore > cScore)?console.log("Win"):
+        console.log("Tie");
+        /*if(cScore > pScore){
+          console.log("You lose...");
+        }
+        else if(pScore > cScore){
+          console.log("You win!");
+        }
+        else{
+          console.log("You tied.");
+        }*/
+      }
+      game(); //find out why this is the same each time
+     
+      
+    </script>
+  </body>
+</html>
