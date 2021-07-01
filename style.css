@@ -1,0 +1,75 @@
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: beige;
+}
+.gameBoard{
+  background-color: green;
+  display: flex;
+  flex-direction: row;
+  width: 75%;
+  height: 75px;
+  border-style: solid;
+  border-color: pink;
+  border-size: 5px;
+  justify-content: space-around;
+  align-items: center;
+}
+.button{
+  display: flex;
+  background-color: purple;
+  color: green;
+  height: 65px;
+  width: 75px;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 65px;
+  border-radius: 5px;
+  border-color: white;
+  border-style: dotted;
+  border-size: 10px;
+  
+}
+.button:hover{
+  background-color: green;
+  color: purple;
+}
+#scoreboard{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: pink;
+  width: 75%;
+  height: 75px;
+  
+}
+#winlose{
+  display: flex;
+  background-color: white;
+  color: purple;
+  height: 25px;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+}
+#scores{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: black;
+  color: green;
+  font-size: 40px;
+  height: 42px;
+  width: 60%;
+  align-items: center;
+}
+.score{
+  display: flex;
+  justify-content: center;
+  width: 55px;
+}
+
+

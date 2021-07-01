@@ -1,5 +1,23 @@
 <html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
   <body>
+    <div class="gameBoard">
+      <a class="button" id="rock">ROCK</a>
+      <a class="button" id="paper">PAPER</a>
+      <a class="button" id="scissors">SCISSORS</a>
+    </div>
+    <div id = "scoreboard">
+      <div id="winlose">
+        <h3>Computer | You</h3>
+      </div>
+      <div id="scores">
+      <p class="score" id="computerScore"></p>
+        <p id="spacer">vs<p>
+      <p class="score" id ="playerScore"></p>
+      </div>
+    </div>
     <script>
       let weapon;
       let rand = 0;
@@ -22,28 +40,54 @@
         playerChoice = prompt("Three, two, one, shoot:");
         return playerChoice;
       }
-      let pWeapon = getPWeapon().toLowerCase();
+      let buttons = document.querySelectorAll('.button');
+      buttons.forEach((button) => {
+
+  
+  button.addEventListener('click', () => {
+     playerChoice = button.id;
+     playRound(computerPlay(), playerChoice);
+    
+  });
+});
+      
+     
+        
+      
       function playRound(cW, pW){
         if((cW === "rock" && pW === "paper") ||
            (cW === "paper" && pW === "scissors") ||
            (cW === "scissors" && pW === "rock")){
            console.log("Computer: " + cW + " vs. You: " + pW + "...You win!");
            pScore++;
-           return pScore;
+                     
            }
         else if((cW === "rock" && pW === "scissors") ||
                (cW === "paper" && pW === "rock") ||
                (cW === "scissors" && pW === "paper")){
                console.log("Computer: " + cW + " vs. You: " + pW + "...You lose!");
           cScore++;
-          return cScore;
+          
                }
         else{
           console.log("Computer: " + cW + " vs. You: " + pW + "...A tie!");
         }
+        console.log("Computer: " + cScore + " You: " + pScore);
+        document.getElementById("computerScore").textContent=cScore;
+        document.getElementById("playerScore").textContent=pScore;
+        if(pScore == 5){
+          document.getElementById("winlose").textContent = "YOU WIN!";
+        }
+        if(cScore == 5){
+          document.getElementById("winlose").textContent = "YOU LOSE!";
+        }
+        
+        
       }
+      
+      /*
       function game(){
-        for(i = 0; i < 5; i++){
+        for(i = 0; i < 1; i++){
           computerPlay();
           let cWeapon = computerPlay();
           playRound(cWeapon, pWeapon);
@@ -60,9 +104,11 @@
         }
         else{
           console.log("You tied.");
-        }*/
+        }
       }
-      game(); //find out why this is the same each time
+      game(); //find out why this is the same each time*/
+      
+     
      
       
     </script>
